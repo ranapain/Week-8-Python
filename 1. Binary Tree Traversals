@@ -1,0 +1,22 @@
+class Solution:
+    def inorderTraversal(self, root):
+        if not root:
+            return []
+        return self.inorderTraversal(root.left) + [root.data] + self.inorderTraversal(root.right)
+
+    def preorderTraversal(self, root):
+        if not root:
+            return []
+        return [root.data] + self.preorderTraversal(root.left) + self.preorderTraversal(root.right)
+
+    def postorderTraversal(self, root):
+        if not root:
+            return []
+        return self.postorderTraversal(root.left) + self.postorderTraversal(root.right) + [root.data]
+
+    def getTraversals(self, root):
+        return [
+            self.inorderTraversal(root),
+            self.preorderTraversal(root),
+            self.postorderTraversal(root)
+        ]
