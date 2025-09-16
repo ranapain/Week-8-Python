@@ -1,0 +1,11 @@
+class Solution:
+    def insert(self, root, key):
+        if not root:
+            from collections import namedtuple
+            Node = type(root)
+            return Node(key)
+        if key < root.data:
+            root.left = self.insert(root.left, key)
+        elif key > root.data:
+            root.right = self.insert(root.right, key)
+        return root
